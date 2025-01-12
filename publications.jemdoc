@@ -1,6 +1,25 @@
 # jemdoc: menu{MENU}{publications.html}, nofooter
 == Publications 
 
+=== Under review
+
+=== Journal
+- H. Sun, and J. Chen, "Integrated Interpolation and Block-term Tensor Decomposition for Spectrum
+Map Construction", IEEE Transactions on Signal Processing, vol. 72, pp. 3896-3911, 2024.
+- [pubs/rescue.pdf A machine learning approach for detecting rescue requests from social media] \n
+#- [https://www.mdpi.com/2220-9964/11/11/570 A Machine Learning Approach for Detecting Rescue Requests from Social Media] \n
+Zheye Wang, Nina S. N. Lam, Mingxuan Sun, Xiao Huang, *Jin Shang*, Lei Zou, Yue Wu, and Volodymyr V. Mihunov \n
+in ISPRS International Journal of Geo-Information. 2022; 11(11):570.
+#- [pubs/10.1007_s10115-019-01379-6.pdf Local low-rank Hawkes processes for modeling temporal user-item interactions] \n
+- [https://link.springer.com/epdf/10.1007/s10115-019-01379-6?author_access_token=s_nsMmaalPrdXl_TOVnRvPe4RwlQNchNByi7wbcMAY5AKah_lrhoWQI_BWqaN1rdy485EoRHGCUV0XgpZKHYKnv9xw6wKjb9TKLudFy8YJN97SZc5Wk21ulu7kVceZPdNOcLNvsjTEu3D0Z7_GL_eQ%3D%3D Local low-rank Hawkes processes for temporal user-item interactions] \n 
+#- [https://link.springer.com/article/10.1007/s10115-019-01379-6 Local low-rank Hawkes processes for modeling temporal user-item interactions] \n
+*Jin Shang*, and Mingxuan Sun \n
+in Knowledge and Information Systems (KAIS) (2019):  1-24.
+- [pubs/Effect.pdf Effect of folded and crumpled morphologies of graphene oxide platelets on the mechanical performances of polymer nanocomposites] \n \[[pubs/Sup.docx Supporting Information]\] \n
+#- [https://www.sciencedirect.com/science/article/abs/pii/S003238611500436X Effect of folded and crumpled morphologies of graphene oxide platelets on the mechanical performances of polymer nanocomposites] \n \[[pubs/Sup.docx Supporting Information]\] \n
+*Jin Shang*, Yuli Chen, et al. \n
+in Polymer 68 (2015): 131-139.
+
 === Conference
 - [pubs/M3Net.pdf Learning attribute and class-specific representation duet for fine-grained fashion analysis] \[[pubs/Supplementary.pdf Supplementary]] \n
 #- [https://openaccess.thecvf.com/content/CVPR2023/papers/Jiao_Learning_Attribute_and_Class-Specific_Representation_Duet_for_Fine-Grained_Fashion_Analysis_CVPR_2023_paper.pdf Learning attribute and class-specific representation duet for fine-grained fashion analysis] \n
@@ -27,18 +46,4 @@ in Proc. of the IEEE International Conference on Data Mining (ICDM), Singapore, 
 (short paper, acceptance rate: 105\/948=11.08\%, total rate: 189\/948=19.94\%) \n
 *Jin Shang*, Mingxuan Sun, and Kevyn Collins-Thompson \n
 in Proc. of the IEEE International Conference on Data Mining (ICDM), Singapore, Nov. 2018.
-=== Journal
-- [pubs/rescue.pdf A machine learning approach for detecting rescue requests from social media] \n
-#- [https://www.mdpi.com/2220-9964/11/11/570 A Machine Learning Approach for Detecting Rescue Requests from Social Media] \n
-Zheye Wang, Nina S. N. Lam, Mingxuan Sun, Xiao Huang, *Jin Shang*, Lei Zou, Yue Wu, and Volodymyr V. Mihunov \n
-in ISPRS International Journal of Geo-Information. 2022; 11(11):570.
-#- [pubs/10.1007_s10115-019-01379-6.pdf Local low-rank Hawkes processes for modeling temporal user-item interactions] \n
-- [https://link.springer.com/epdf/10.1007/s10115-019-01379-6?author_access_token=s_nsMmaalPrdXl_TOVnRvPe4RwlQNchNByi7wbcMAY5AKah_lrhoWQI_BWqaN1rdy485EoRHGCUV0XgpZKHYKnv9xw6wKjb9TKLudFy8YJN97SZc5Wk21ulu7kVceZPdNOcLNvsjTEu3D0Z7_GL_eQ%3D%3D Local low-rank Hawkes processes for temporal user-item interactions] \n 
-#- [https://link.springer.com/article/10.1007/s10115-019-01379-6 Local low-rank Hawkes processes for modeling temporal user-item interactions] \n
-*Jin Shang*, and Mingxuan Sun \n
-in Knowledge and Information Systems (KAIS) (2019):  1-24.
-- [pubs/Effect.pdf Effect of folded and crumpled morphologies of graphene oxide platelets on the mechanical performances of polymer nanocomposites] \n \[[pubs/Sup.docx Supporting Information]\] \n
-#- [https://www.sciencedirect.com/science/article/abs/pii/S003238611500436X Effect of folded and crumpled morphologies of graphene oxide platelets on the mechanical performances of polymer nanocomposites] \n \[[pubs/Sup.docx Supporting Information]\] \n
-*Jin Shang*, Yuli Chen, et al. \n
-in Polymer 68 (2015): 131-139.
 
