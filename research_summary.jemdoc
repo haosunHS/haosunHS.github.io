@@ -1,56 +1,60 @@
 # jemdoc: menu{MENU}{experiences.html}, nofooter
-== Experiences
+== Research Summary
+= Radio Map Reconstruction and Application
 
-== Working Experiences
-- Applied Scientist II at [https://www.amazon.com/ Amazon], Seattle, WA, Jun. 2022 - present \n
--- Machine learning on search and ranking, personalization, and softline.
-\n
+== Background
+Radio map is a graphical representation of a communication environment, depicting the spatial distribution of received signal strength (or other radio parameters) across a geographical area. It has important applications in many areas, such as localization, spectrum monitoring and management.
 
-- Senior Engineer at [https://www.us1.dgene.com/ DGene Inc.], Baton Rouge, LA, Mar. 2021 - Jun. 2022 \n
-: {1. Image and Video Inpainting Library:} Present an image and video inpainting library which can be used for several inpainting tasks such as object removal, old movie gate hair removal, and image inpainting. It contains several automatic detectors to generate refined masks for the different objects to be removed including old movie gate hair and other specific objects. It also combines several traditional techniques (like optical flow, Poisson image editing, etc.) and deep learning-based models to fix the videos and images. Collaborated with [http://www.mtifilm.com/ MTI Film] and use the library is used to fix some old movies' gate hair. Also used this library to fix a movie pilot, Functional Chaos, by Will Shivers, and have credit on that. The library is implemented by C\/C\+\+, OpenCV, Eigen, and LibTorch. \n
-~~~
-{}{img_left}{gif/compare_3f.gif}{alt text}{427}{480}
-Swing Chain Removal \n
-See clear [webm/compare_3f.webm video] \n
-More [https://jshang2.github.io/projects.html Demo] \n
-\n
-~~~
-\n
-~~~
-{}{img_left}{gif/file.gif}{alt text}{854}{480}
-Gatehair Revomal \n
-See clear [webm/file.webm video] \n
-More [https://jshang2.github.io/projects.html Demo] \n
-\n
-~~~
-\n
-: {2. Volumetric Capture:} Present a novel background removal method with a high degree of accuracy in a purpose-built volumetric capture stage, which could record performances and convert them into 3D sequences viewable from any angle. The algorithm beats current state-of-art methods in our situation, combines deep learning and traditional techniques such as joint bilateral upsampling. It is also suitable for small volumetric capture systems such as face dome and object scan. Implement with PyTorch in training and also deliver software using C\/C\+\+, OpenCV, and LibTorch. Achieving fast speed with high-resolution output by adopting CUDA programming in the application.\n
-~~~
-{}{img_left}{gif/dancer_blue.gif}{alt text}{397}{300}
-Vitural Ballerina \n
-See clear [webm/dancer_blue.webm video] \n
-More [https://jshang2.github.io/projects.html Demo] \n
-\n
-~~~
-\n
+== Problem and Challenges
+In real-world scenarios, obtaining comprehensive measurements for a radio map is labor-intensive, resulting in only sparse data being available. However, accurately reconstructing a radio map from these sparse measurements remains a significant challenge.
 
-- Postdoctoral Researcher at [https://www.us1.dgene.com/ DGene Inc.], Baton Rouge, LA, Sep. 2020 - Mar. 2021 \n
--- Working on non-rigid registration for continuous meshes. Considering several energy terms such as rigid, non-rigid, smooth, local, and temporal based on the traditional Iterative Closest Point(ICP) method. Using Levenberg-Marquardt algorithm for fast optimization. \n
--- Develop a learning-based model to deal with the image super-resolution with ringing artifacts in some old TV shows. \n
--- Develop a learning-based model to handle image style transfer between old movies and nowadays ones.
-\n
+- Firstly, measurement data is only available in limited locations or along a few routes, making it difficult to capture the spatial pattern of signal reflection and attenuation from the propagation environment.
+- Secondly, the measurement data corresponding to typical environments will have different data structures, which requires exploiting the underlying data structure from the sparse measurements.
 
-- Data Scientist Intern at [https://www.linkedin.com/company/particle-media-inc-/ Particle Media Inc.], Mountain View, CA, May. 2019 - Aug. 2019 \n
-Mentor: Dr. [https://sites.google.com/site/archkzhou/ Ke Zhou] \n
--- Present a novel outer product-based deep Factorization Machine(FM) that achieves the highest improvements among all the state-of-art baselines on the Click-through Rate(CTR) prediction task. \n
--- Present a fast approximate nearest neighbor(ANN) search method based on Hierarchical Navigable Small World(HNSW) algorithm with multilayer perceptron(MLP) distance to make the deep learning based FMs\/FFMs applicable to the online serving system. \n
--- Apply some recent deep learning-based FMs\/FFMs on the [http://www.newsbreakapp.com/ News Break] App(The No.1 news app on Android and No.2 on iOS in the 2nd quarter of 2019 reported by App Annie with 5M+ daily active users) ForYou datasets(10M instance per day) and evaluate the results which are measured by AUC and test logistic loss.
-\n
+== Radio Map Construction
 
-== Professional Services
-- Program Committee\/Reviewer: NeurIPS 2019, EMNLP 2019, ACM Computing Surveys, KDD 2020, ICPR 2020, KDD 2021, Neural Networks, SDM 2022, KDD 2022, KDD 2023
+=== Integrating Interpolation and Matrix Completion
+It is challenging to reconstruct a radio map from a set of sparse measurements due to the lack of accurate models to describe the propagation law. We propose to integrate interpolation with matrix completion to exploit both the spatial correlation and the potential low-rank structure of the radio map. Such an integration is highly non-trivial due to the following two challenges:
 
-== Teaching Assistant Experiences
-- CSC 1253: Computer Science I with C\+\+, Fall 2016
-- CSC 1254: Computer Science II with C\+\+, Spring 2017
+1. How to integrate the two methods such that the integrated approach works better than both methods applied alone.
+2. How to optimize the parameters for the integrated approach.
 
+Our method first enriches matrix observations using interpolation and develops the statistics of the interpolation error based on a local polynomial regression model. We then develop two uncertainty-aware matrix completion algorithms to exploit the interpolation error statistics.
+
+Our numerical results demonstrate that the proposed method outperforms Kriging and other state-of-the-art schemes, reducing the MSE of radio map reconstruction by 10%–50% for a medium to large number of measurements, which translates to a saving of nearly half of the sensor measurements to achieve the same MSE.
+
+- **H. Sun**, and **J. Chen**, "Propagation map reconstruction via interpolation assisted matrix completion", *IEEE Transactions on Signal Processing*, vol. 70, pp. 6154-6169, 2022.
+- **H. Sun**, and **J. Chen**, "Regression assisted matrix completion for reconstructing a propagation field with application to source localization", in *Proc. IEEE Int. Conf. Acoustic, Speech, and Signal Process.* (ICASSP), 2022.
+
+=== Integrating Interpolation and Block-Term Tensor Decomposition
+To construct a 3D data array representing the spectrum information over a 2D area, based on sparse, scattered, and incomplete spectrum measurements, we propose a novel approach that combines interpolation with block-term tensor decomposition (BTD). Our method integrates an interpolation model within the BTD framework to capture the spatial correlations of radio maps. We employ nuclear norm regularization to leverage the low-rank property of the radio maps.
+
+To solve the integrated interpolation and BTD problem, we develop an alternating regression and singular value thresholding algorithm. Our analytical results provide theoretical justification for the benefits of the BTD structure in enhancing interpolation for radio map construction.
+
+We conducted extensive simulations, demonstrating that our proposed method achieved over 10% improvement in reconstruction accuracy across various scenarios, including different numbers of sensors, measurement topology homogeneity, shadowing parameters, and off-grid scenarios.
+
+- **H. Sun**, and **J. Chen**, "Integrated Interpolation and Block-term Tensor Decomposition for Spectrum Map Construction", *IEEE Transactions on Signal Processing*, vol. 72, pp. 3896-3911, 2024.
+- **H. Sun**, **J. Chen**, and **Y. Luo**, "Tensor-guided interpolation for off-grid power spectrum map construction", in *Proc. IEEE Int. Conf. Acoustic, Speech, and Signal Process.* (ICASSP), 2024.
+
+=== Toeplitz Structured Tensor Decomposition
+The beam space map is one kind of radio map which contains rich information of signal distribution under different beam angles. To reconstruct such map is hard due to structural information hidden in the different maps under different beam angles. We propose a Toeplitz structured tensor decomposition method to reconstruct the beam space map. A new tensor model is created by transforming the measurements from the Cartesian coordinate system into the Polar coordinate system. The measurements are formulated into a BTD model, where there is correlation between each slice of the tensor. It is proved that, in the Polar system, each slice of the tensor exhibits both Toeplitz and symmetric structures. For the line-of-sight (LOS) case with reflection, the measurements from both the direct and reflect beams are formulated into a single BTD model by concatenating them directly. We formulate a BTD model with Toeplitz constraints and develop an alternating minimization algorithm to solve the proposed model.
+
+Numerical results show that the proposed tensor decomposition method achieves over a 20% improvement in NMSE reconstruction accuracy compared to interpolation and traditional BTD methods.
+
+- **H. Sun**, and **J. Chen**, "Beam Space Map Reconstruction via Toeplitz Structured Tensor Decomposition", *under preparation*.
+
+== Application in Localization
+
+=== Localization under Non-Uniform Sensor Deployments
+Non-parametric source localization based on signal strength measurements taken at non-uniformly distributed sensor locations is challenging. We consider a recently developed matrix-based method, which first arranges the measurements into an observation matrix based on a uniform grid defined in the target area and the sensor locations. Sparse matrix processing techniques are then employed to localize the source. Our findings indicate that localization performance degrades when the spatial pattern of the sensors is highly non-uniform, and that the uniform grid formation is only a suboptimal solution. Instead, we argue that the grid should be optimized based on the specific sensor topology. Drawing insight from the Cramér-Rao bound (CRB) analysis of matrix completion, we formulate a clustering problem to optimize the grid.
+
+We demonstrate that grid optimization significantly improves both matrix completion and source localization performance. Our proposed strategy is robust under inhomogeneous sensor topology and substantially outperforms weighted centroid localization (WCL) algorithms. The performance is also tested under a real road test dataset collected in Beijing. The localization performance is uniformly better than baseline, with up to 50% improvement.
+
+- **H. Sun**, and **J. Chen**, "Grid optimization for matrix-based source localization under inhomogeneous sensor topology", in *Proc. IEEE Int. Conf. Acoustic, Speech, and Signal Process.* (ICASSP), 2021.
+
+=== Map-Assisted Non-Cooperative Source Localization
+Exploiting 3D environment maps can enhance RSS-based localization. However, an accurate 3D environment map is more difficult to obtain compared to its 2D counterpart. We present a non-cooperative source localization approach based on received signal strength (RSS) and a 2D environment map, considering both line-of-sight (LOS) and non-line-of-sight (NLOS) conditions. Conventional localization methods, such as weighted centroid localization (WCL), may perform poorly in these scenarios. We propose a segmented regression approach using 2D maps to estimate the source location and propagation environment jointly. By leveraging topological information from the 2D maps, we develop a support vector-assisted algorithm to solve the segmented regression problem, separate the LOS and NLOS measurements, and estimate the source location.
+
+Our method demonstrates superior localization performance, with an improvement of over 30% in localization root mean squared error (RMSE) compared to the baseline methods. The performance is tested based on our data set collected over the air in the CUHK-SZ campus. An over 50% improvement in localization accuracy as compared to the WCL related methods.
+
+- **H. Sun**, **W. Huang**, **J. Chen**, "A Support Vector Approach in Segmented Regression for Map-assisted Non-cooperative Source Localization", submitted to *IEEE Wireless Communication Letters*.
