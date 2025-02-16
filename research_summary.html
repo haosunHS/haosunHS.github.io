@@ -36,10 +36,10 @@
 <h2>Radio Map Construction</h2>
 <h3>Integrating Interpolation and Matrix Completion</h3>
 <p>It is challenging to reconstruct a radio map from a set of sparse measurements due to the lack of accurate models to describe the propagation law. We propose to integrate interpolation with matrix completion to exploit both the spatial correlation and the potential low-rank structure of the radio map. Such an integration is highly non-trivial due to the following two challenges:</p>
-<p>1. How to integrate the two methods such that the integrated approach works better than both methods applied alone.
-2. How to optimize the parameters for the integrated approach.</p>
+<p>1. How to integrate the two methods such that the integrated approach works better than both methods applied alone.</p>
+<p>2. How to optimize the parameters for the integrated approach.</p>
 <p>Our method first enriches matrix observations using interpolation and develops the statistics of the interpolation error based on a local polynomial regression model. We then develop two uncertainty-aware matrix completion algorithms to exploit the interpolation error statistics.</p>
-<p>Our numerical results demonstrate that the proposed method outperforms Kriging and other state-of-the-art schemes, reducing the MSE of radio map reconstruction by 10<tt>–50</tt> for a medium to large number of measurements, which translates to a saving of nearly half of the sensor measurements to achieve the same MSE.</p>
+<p>Our numerical results demonstrate that the proposed method outperforms Kriging and other state-of-the-art schemes, reducing the MSE of radio map reconstruction by 10% - 50% for a medium to large number of measurements, which translates to a saving of nearly half of the sensor measurements to achieve the same MSE.</p>
 <ul>
 <li><p><b></b>H. Sun<b></b>, and <b></b>J. Chen<b></b>, &ldquo;Propagation map reconstruction via interpolation assisted matrix completion&rdquo;, <b>IEEE Transactions on Signal Processing</b>, vol. 70, pp. 6154-6169, 2022.</p>
 </li>
@@ -73,7 +73,7 @@
 </ul>
 <h3>Map-Assisted Non-Cooperative Source Localization</h3>
 <p>Exploiting 3D environment maps can enhance RSS-based localization. However, an accurate 3D environment map is more difficult to obtain compared to its 2D counterpart. We present a non-cooperative source localization approach based on received signal strength (RSS) and a 2D environment map, considering both line-of-sight (LOS) and non-line-of-sight (NLOS) conditions. Conventional localization methods, such as weighted centroid localization (WCL), may perform poorly in these scenarios. We propose a segmented regression approach using 2D maps to estimate the source location and propagation environment jointly. By leveraging topological information from the 2D maps, we develop a support vector-assisted algorithm to solve the segmented regression problem, separate the LOS and NLOS measurements, and estimate the source location.</p>
-<p>Our method demonstrates superior localization performance, with an improvement of over 30<tt> in localization root mean squared error (RMSE) compared to the baseline methods. The performance is tested based on our data set collected over the air in the CUHK-SZ campus. An over 50</tt> improvement in localization accuracy as compared to the WCL related methods.</p>
+<p>Our method demonstrates superior localization performance, with an improvement of over 30% in localization root mean squared error (RMSE) compared to the baseline methods. The performance is tested based on our data set collected over the air in the CUHK-SZ campus. An over 50% improvement in localization accuracy as compared to the WCL related methods.</p>
 <ul>
 <li><p><b></b>H. Sun<b></b>, <b></b>W. Huang<b></b>, <b></b>J. Chen<b></b>, &ldquo;A Support Vector Approach in Segmented Regression for Map-assisted Non-cooperative Source Localization&rdquo;, submitted to <b>IEEE Wireless Communication Letters</b>.</p>
 </li>

@@ -1,11 +1,6 @@
 C:\Users\86134\Desktop\haosunHS.github.io>python jemdoc.py index.jemdoc
 
 
-copy C:\Projects\Jemdoc\index.html C:\Users\86134\Desktop\haosun\haosunHS.github.io\
-
-
-
-
 git add .
 
 git commit -m "添加 jemdoc 生成的页面"
